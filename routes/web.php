@@ -14,11 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-//wqdjqwndjnwqjd
+
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
   //halaman ketika user berhasil loginn
-  //tes git local
