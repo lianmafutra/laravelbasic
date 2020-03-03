@@ -14,11 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+//wqdjqwndjnwqjd
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-  //halaman ketika user berhasil login
-//test komen
+  //halaman ketika user berhasil loginn
+  //ad
