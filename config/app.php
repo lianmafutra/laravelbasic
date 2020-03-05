@@ -163,8 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        
-
+        Yajra\DataTables\DataTablesServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -229,6 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         
 
     ],
