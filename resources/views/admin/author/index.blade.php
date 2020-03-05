@@ -1,11 +1,11 @@
-@extends('admin.templates.default')
+@extends('admin.templates.partials.default')
 
 @section('content')
     <h1>Penulis</h1>
     <div class="card">
-        {{-- <div class="card-header">
-          <h3 class="card-title">DataTable with default features</h3>
-        </div> --}}
+        <div class="card-header">
+        <a href="{{route('admin.author.create')}}" class="btn btn btn-primary">Tambah Penulis</a>
+        </div>
         <!-- /.card-header -->
         <div class="card-body">
           <table id="dataTable" class="table table-bordered table-striped">
