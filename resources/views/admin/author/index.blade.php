@@ -5,10 +5,12 @@
     <div class="card">
         <div class="card-header">
         <a href="{{route('admin.author.create')}}" class="btn btn btn-primary">Tambah Penulis</a>
+  
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-          <table id="dataTable" class="table table-bordered table-striped">
+            @include('admin.templates.partials.alerts')
+         <table id="dataTable" class="table table-bordered table-striped">
             <thead>
             <tr>
               <th>Id</th>
