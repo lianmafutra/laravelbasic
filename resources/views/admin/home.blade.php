@@ -1,4 +1,4 @@
-@extends('admin.templates.default')
+@extends('admin.templates.partials.default')
 @section('content')
-    <h1>Dashboard</h1>
+    <h1>ini Dashboard Admin</h1>
 @endsection

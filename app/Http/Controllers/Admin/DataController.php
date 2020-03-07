@@ -9,9 +9,17 @@ use App\Author;
 class DataController extends Controller
 {
 
-public function authors(){
-    return datatables()->of(Author::query())->toJson();
-}
+    public function authors(){
+
+
+        $author =Author::orderBy('name','ASC');
+        return datatables()->of($author)
+        ->addColumn('action',function(Author $author){
+           
+        })               
+        ->addIndexColumn()
+        ->toJson();
+    }
 
 
 }

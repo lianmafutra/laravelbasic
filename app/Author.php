@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
+    protected $guarded= [''];
     public $timestamps = false; // menagktifkan kolom created at & update at
     
 }
