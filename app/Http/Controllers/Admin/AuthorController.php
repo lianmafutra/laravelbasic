@@ -15,7 +15,9 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        return view('admin.author.index');
+        return view('admin.author.index',[
+            'title'=>'Data Penulis'
+        ]);
     }
 
     /**
@@ -25,7 +27,9 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        return view('admin.author.create');
+        return view('admin.author.create',[
+            'title'=>'Tambah Penulis'
+        ]);
     }
 
     /**
@@ -36,6 +40,8 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
+        
+
         Author::create($request->only('name'));
         return redirect()->route('admin.author.index')
                         ->with('success','Data berhasil ditambahkan');
@@ -61,7 +67,8 @@ class AuthorController extends Controller
     public function edit(Author $author)
     {
         return view('admin.author.edit',[
-            'author'=>$author
+            'author'=>$author,
+            'title'=>'Edit Penulis'
         ]);
     }
 
