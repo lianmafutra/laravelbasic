@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Author;
+use App\Book;
 
 class DataController extends Controller
 {
@@ -15,6 +16,13 @@ class DataController extends Controller
         ->addColumn('action','admin.author.action')
         ->addIndexColumn()
         ->rawColumns(['action'])
+        ->toJson();
+    }
+
+    public function books(){
+        $book =Book::orderBy('title','ASC');
+        return datatables()->of($book)
+        ->addIndexColumn()
         ->toJson();
     }
 
