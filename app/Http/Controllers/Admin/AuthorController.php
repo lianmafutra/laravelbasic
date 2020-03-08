@@ -40,7 +40,9 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validate($request,[
+            'name'=>'required|min:3'
+        ]);
 
         Author::create($request->only('name'));
         return redirect()->route('admin.author.index')
@@ -81,6 +83,10 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
+        $this->validate($request,[
+            'name'=>'required|min:3'
+        ]);
+
         $author->update($request->only('name'));
         return redirect()->route('admin.author.index')
         ->with('info','Data berhasil diupdate');
