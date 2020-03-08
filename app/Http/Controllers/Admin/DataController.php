@@ -21,9 +21,17 @@ class DataController extends Controller
 
     public function books(){
         $book =Book::orderBy('title','ASC');
+        
         return datatables()->of($book)
-        ->addIndexColumn()
-        ->toJson();
+            ->addColumn('author', function(Book $model){
+                 return $model->author->name;
+            })
+            ->editColumn('cover', function(Book $model){
+                return '<img src="'. $model->cover.'">';
+           })
+            ->addIndexColumn()
+            ->rawColumns(['cover'])
+            ->toJson();
     }
 
 

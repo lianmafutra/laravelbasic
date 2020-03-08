@@ -12,4 +12,4 @@ Route::get('/','HomeController@index')->name('dashboard');
 Route::get('/author/data','DataController@authors')->name('author.data');
 Route::get('/book/data','DataController@books')->name('book.data');
 Route::resource('author','AuthorController'); // menggunakan route resource
-// menggunakan route resource
+Route::resource('book','BookController'); 
