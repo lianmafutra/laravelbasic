@@ -25,11 +25,11 @@ class DataController extends Controller
         return datatables()->of($book)
             ->addColumn('author', function(Book $model){
                  return $model->author->name;
-            })
+                    })
             ->editColumn('cover', function(Book $model){
-                return '<img src="'. $model->cover.'" height="150px">';
-           })
-           ->addColumn('action','admin.book.action')
+                return '<img src="'. $model->getCover().'" height="150px">';
+                })
+            ->addColumn('action','admin.book.action')
             ->addIndexColumn()
             ->rawColumns(['cover','action'])
             ->toJson();

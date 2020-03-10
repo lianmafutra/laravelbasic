@@ -2,23 +2,85 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h6 class="m-0 text-dark">Edit data penulis</h6>
+        <h6 class="m-0 text-dark">Edit data buku</h6>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-    <form role="form" action="{{route('admin.author.update', $author)}}" method="POST">
-        @csrf 
-        @method('PUT')
-              <div class="form-group @error('name') 'has-error' @enderror">
-                <label for="">Nama</label>
-              <input type="text" class="form-control" name="name" value="{{ old('name') ?? $author->name}}"
-              placeholder="Masukan Nama Penulis">
-                @error('name')
-                <span class="help-block" style="color:red">{{$message}}</span>
-              @enderror
+    <form role="form" action="{{route('admin.book.update', $book )}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method("PUT") 
+
+            {{-- input title --}}
+              <div class="form-group @error('title') 'has-error' @enderror">
+                  <label for="">Judul</label>
+                  <input type="text" class="form-control" name="title" value="{{$book->title ?? old('title')}}" 
+                  placeholder="Masukan judul buku">
+                  @error('title')
+                    <span class="help-block" style="color:red">{{$message}}</span>
+                  @enderror
               </div>
-        
-            <button type="submit" class="btn btn-primary">Edit Data</button>
+
+               {{-- input deskripsi --}}
+              <div class="form-group @error('desc') 'has-error' @enderror">
+                  <label for="">Deskripsi</label>
+                  <textarea type="text" class="form-control" name="desc" 
+                      placeholder="Masukan deskripsi buku">{{$book->description ?? old('desc')}}</textarea>
+                  @error('desc')
+                    <span class="help-block" style="color:red">{{$message}}</span>
+                  @enderror
+              </div>
+
+               {{-- input author --}}
+              <div class="form-group @error('author') 'has-error' @enderror">
+                  <label for="">Penulis</label>
+                  <select name="author" id="" class="form-control select2" data-placeholder="Pilih Penulis Buku">
+                    @foreach ( $authors as $author)
+                      <option ></option>
+                      <option value="{{$author->id}}"
+                       @if($author->id === $book->author_id)
+                        selected
+                       @endif>
+                      {{$author->name}}
+                      </option>
+                    @endforeach
+                  </select>
+                  @error('author')
+                    <span class="help-block" style="color:red">{{$message}}</span>
+                  @enderror
+              </div>
+
+              
+
+              {{-- input cover --}}
+              <div class="form-group @error('cover') 'has-error' @enderror">
+                <label for="">Cover</label>
+                <input type="file" class="form-control-file" name="cover">
+                @error('cover')
+                  <span class="help-block" style="color:red">{{$message}}</span>
+                @enderror
+            </div>
+            {{-- <div class="form-group @error('cover') 'has-error' @enderror">
+               <label for="customFile">Cover</label> 
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" name="cover" for="customFile">Upload Cover</label>
+                @error('cover')
+                  <span class="help-block" style="color:red">{{$message}}</span>
+                @enderror
+              </div>
+            </div> --}}
+            
+               {{-- input jumlah --}}
+               <div class="form-group @error('qty') 'has-error' @enderror">
+                <label for="">Jumlah</label>
+                <input type="text" class="form-control" name="qty" value="{{$book->qty ?? old('qty')}}" 
+                placeholder="Masukan jumlah buku">
+                @error('qty')
+                  <span class="help-block" style="color:red">{{$message}}</span>
+                @enderror
+            </div>
+              
+            <button type="submit" class="btn btn-primary">Update Data</button>
             <!-- /.card-body -->
 
            
@@ -27,3 +89,15 @@
     <!-- /.card-body -->
 </div>
 @endsection
+
+@push('select2css')
+    <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.css')}}">
+@endpush
+
+@push('scripts')
+    <script src="{{asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
+
+  <script>
+    $('.select2').select2();
+  </script>
+@endpush
