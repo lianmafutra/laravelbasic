@@ -5,8 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
-{
-    public function author(){
+{  
+    
+    protected $guarded=[];
+    
+    public function author(){  
         return $this->belongsTo(Author::class);
     }
+
+   
 }

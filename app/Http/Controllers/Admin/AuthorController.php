@@ -89,6 +89,8 @@ class AuthorController extends Controller
         ->with('info','Data berhasil diupdate');
     }
 
+    
+
     /**
      * Remove the specified resource from storage.
      *

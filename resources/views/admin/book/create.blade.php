@@ -22,8 +22,8 @@
                {{-- input deskripsi --}}
               <div class="form-group @error('desc') 'has-error' @enderror">
                   <label for="">Deskripsi</label>
-                  <textarea type="text" class="form-control" name="desc" value="{{old('desc')}}" 
-                      placeholder="Masukan deskripsi buku"></textarea>
+                  <textarea type="text" class="form-control" name="desc" 
+                      placeholder="Masukan deskripsi buku">{{old('desc')}}</textarea>
                   @error('desc')
                     <span class="help-block" style="color:red">{{$message}}</span>
                   @enderror
@@ -32,8 +32,10 @@
                {{-- input author --}}
               <div class="form-group @error('author') 'has-error' @enderror">
                   <label for="">Penulis</label>
-                  <select name="author_id" id="" class="form-control select2">
+                  <select name="author" id="" class="form-control select2" data-placeholder="Pilih Penulis Buku">
                     @foreach ( $authors as $author)
+                    
+                      <option></option>
                       <option value="{{$author->id}}">{{$author->name}}</option>
                     @endforeach
                   </select>
@@ -45,16 +47,15 @@
               
 
               {{-- input cover --}}
-              {{-- <div class="form-group @error('cover') 'has-error' @enderror">
+              <div class="form-group @error('cover') 'has-error' @enderror">
                 <label for="">Cover</label>
                 <input type="file" class="form-control-file" name="cover">
                 @error('cover')
                   <span class="help-block" style="color:red">{{$message}}</span>
                 @enderror
-            </div> --}}
-            <div class="form-group @error('cover') 'has-error' @enderror">
+            </div>
+            {{-- <div class="form-group @error('cover') 'has-error' @enderror">
                <label for="customFile">Cover</label> 
-
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="customFile">
                 <label class="custom-file-label" name="cover" for="customFile">Upload Cover</label>
@@ -62,14 +63,14 @@
                   <span class="help-block" style="color:red">{{$message}}</span>
                 @enderror
               </div>
-            </div>
+            </div> --}}
             
                {{-- input jumlah --}}
-               <div class="form-group @error('jumlah') 'has-error' @enderror">
+               <div class="form-group @error('qty') 'has-error' @enderror">
                 <label for="">Jumlah</label>
-                <input type="text" class="form-control" name="jumlah" value="{{old('jumlah')}}" 
+                <input type="text" class="form-control" name="qty" value="{{old('qty')}}" 
                 placeholder="Masukan jumlah buku">
-                @error('jumlah')
+                @error('qty')
                   <span class="help-block" style="color:red">{{$message}}</span>
                 @enderror
             </div>
