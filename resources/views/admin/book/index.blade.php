@@ -42,7 +42,7 @@
 
 <!-- push datatable hanya dipanggil di index book saja  -->
 @push('css_datatable')
-<link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endpush
 
 @push('scripts')
