@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endpush
 
-
+ 
 @push('scripts')
 <!-- DataTables -->
 <script src="{{asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
