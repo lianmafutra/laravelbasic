@@ -17,7 +17,7 @@
           <p>{{Str::limit($book->description,100)}}</p>
           </div>
           <div class="card-action">
-            <a href="#">Pinjam Buku</a>
+            <a href="#" class="btn red accent-1 right waves-effect waves-light">Pinjam Buku</a>
           </div>
         </div>
       </div>
