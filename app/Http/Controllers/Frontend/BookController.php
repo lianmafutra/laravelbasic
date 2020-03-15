@@ -34,6 +34,6 @@ class BookController extends Controller
         $user = auth()->user();
         $user->borrow()->attach($book);
 
-       return "OK";
+        return redirect()->back();
     }
 }
