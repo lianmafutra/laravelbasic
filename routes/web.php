@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', 'Frontend\\BookController@index');
-
-//Route detail buku
+Route::get('/', 'Frontend\\BookController@index')->name('homepage');
+//detail buku
 Route::get('book/{book}','Frontend\\BookController@show')->name('book.show');
+//pinjam buku
+Route::post('book/{book}/borrow','Frontend\\BookController@borrow')
+->name('book.borrow')->middleware('auth');
 
 
 Auth::routes(['verify'=>true]);
