@@ -84,7 +84,7 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', 'Frontend\\BookController@index');
+
+//Route detail buku
+Route::get('book/{book}','Frontend\\BookController@show')->name('book.show');
 
 
 Auth::routes(['verify'=>true]);

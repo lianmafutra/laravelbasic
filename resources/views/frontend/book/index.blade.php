@@ -4,28 +4,32 @@
   <blockquote> <p class="flow-text">Koleksi Buku yang bisa kamu baca dan pinjam </p></blockquote>
    
    <div class="row">
-      @for ($x = 1; $x <= 4; $x++) 
-        <div class="col s12 m6">
-            <div class="card horizontal hoverable">
-              <div class="card-image">
-                <img src="https://lorempixel.com/100/190/nature/6">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <p>I am a very simple card. I am good at containing small bits of information.</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">This is a link</a>
-                </div>
-              </div>
-            </div>
+     
+    @foreach ($books as $book)
+    <div class="col s12 m6">
+      <div class="card horizontal hoverable">
+        <div class="card-image">
+        <img src="{{$book->getCover()}}" height="200px">
         </div>
-      @endfor
+        <div class="card-stacked">
+          <div class="card-content">
+          <h6>{{Str::limit($book->title,30)}}</h6>
+          <p>{{Str::limit($book->description,100)}}</p>
+          </div>
+          <div class="card-action">
+            <a href="#">Pinjam Buku</a>
+          </div>
+        </div>
+      </div>
+  </div>
+    @endforeach
    </div> 
    <!-- end row -->
 
    <!--Pagination  -->
-  <ul class="pagination center">
+   {{ $books->links('vendor.pagination.materialize') }}
+
+  {{-- <ul class="pagination center">
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
     <li class="active"><a href="#!">1</a></li>
     <li class="waves-effect"><a href="#!">2</a></li>
@@ -33,5 +37,5 @@
     <li class="waves-effect"><a href="#!">4</a></li>
     <li class="waves-effect"><a href="#!">5</a></li>
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul>
+  </ul> --}}
 @endsection
