@@ -13,7 +13,7 @@
         </div>
         <div class="card-stacked">
           <div class="card-content">
-          <h6>{{Str::limit($book->title,30)}}</h6>
+          <h6> <a href="{{route('book.show',$book)}}">{{Str::limit($book->title,30)}}</a></h6>
           <p>{{Str::limit($book->description,100)}}</p>
           </div>
           <div class="card-action">
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
     @endforeach
    </div> 
    <!-- end row -->
@@ -29,13 +29,5 @@
    <!--Pagination  -->
    {{ $books->links('vendor.pagination.materialize') }}
 
-  {{-- <ul class="pagination center">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul> --}}
+
 @endsection
