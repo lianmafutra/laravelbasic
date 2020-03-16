@@ -7,7 +7,19 @@
         @guest
           <li><a href={{route('login')}}>Login</a></li>
           <li><a href={{ route('register') }}>Register</a></li> 
-          @else      
+        @else
+          <ul id="dropdown1" class="dropdown-content">
+            <li>
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">logout
+                </a>
+            </li>
+          </ul>
+
+          <li><a href="#" class="dropdown-trigger" data-target="dropdown1">{{auth()->user()->name}}</a></li> 
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+
         @endguest
       </ul>
     </div>
