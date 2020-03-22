@@ -13,6 +13,7 @@ class DataController extends Controller
 
     public function authors(){
         $author =Author::orderBy('name','ASC');
+     
         return datatables()->of($author)
         ->addColumn('action','admin.author.action')
         ->addIndexColumn()
@@ -21,8 +22,8 @@ class DataController extends Controller
     }
 
     public function books(){
-        $book =Book::orderBy('title','ASC');
-        
+        $book =Book::with('author')->orderBy('title','ASC');
+
         return datatables()->of($book)
             ->addColumn('author', function(Book $model){
                  return $model->author->name;
