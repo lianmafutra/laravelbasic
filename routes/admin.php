@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\BorrowController;
+
 Route::get('/','HomeController@index')->name('dashboard');
 
 // Route::get('/author','AuthorController@index')->name('author.index');
@@ -11,5 +13,7 @@ Route::get('/','HomeController@index')->name('dashboard');
 
 Route::get('/author/data','DataController@authors')->name('author.data');
 Route::get('/book/data','DataController@books')->name('book.data');
+Route::get('/borrow/data','DataController@borrows')->name('borrow.  ');
 Route::resource('author','AuthorController'); // menggunakan route resource
 Route::resource('book','BookController'); 
+Route::get('borrow', 'BorrowController@index')->name('borrow.index');
