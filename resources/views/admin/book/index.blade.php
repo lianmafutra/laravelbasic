@@ -32,7 +32,7 @@
         <!-- /.card-body -->
     </div>
      
-    <form action="" method="POST" id="deleteForm">
+    <form action="" method="POST" id="returnForm">
         @csrf
         @method('DELETE')
         <input type="submit" value="Hapus" style="display:none">

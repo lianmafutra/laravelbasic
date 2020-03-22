@@ -1,11 +1,10 @@
 @extends('admin.templates.partials.default')
 
 @section('content')
-    <h1>Penulis</h1>
+    <h1>Data pengembalian Buku</h1>
     <div class="card">
         <div class="card-header">
-        <a href="{{route('admin.author.create')}}" class="btn btn btn-primary">Tambah Penulis</a>
-  
+      
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -17,7 +16,6 @@
               <th>Nama</th>
               <th>Judul Buku</th>
               <th>Action</th>
-            
             </tr>
             </thead>
             <tbody>
@@ -30,9 +28,9 @@
         <!-- /.card-body -->
     </div>
      
-    <form action="" method="POST" id="deleteForm">
+    <form action="" method="POST" id="returnForm">
         @csrf
-        @method('DELETE')
+        @method('PUT')
         <input type="submit" value="Hapus" style="display:none">
     </form>
             

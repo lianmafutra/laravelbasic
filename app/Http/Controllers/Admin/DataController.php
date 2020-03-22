@@ -37,7 +37,7 @@ class DataController extends Controller
     }
 
     public function borrows(){
-        $borrows = BorrowHistory::latest();
+        $borrows = BorrowHistory::isBorrowed()->latest();
         
         return datatables()->of($borrows)
             //->addColumn('action','admin.book.action')
@@ -50,6 +50,8 @@ class DataController extends Controller
             ->rawColumns(['action'])
             ->toJson();
     }
+
+    
 
 
 }
