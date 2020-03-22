@@ -23,12 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->hasRole('admin')){
-            return 'ok admin';
-        }
-        else{
-            return 'ok user';
-        }
-        // return view('home');
+        $books = auth()->user()->borrow;
+        // dd($books);
+        return view('home',[
+            'books' => $books
+        ]);
     }
 }
