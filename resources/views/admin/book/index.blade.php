@@ -16,6 +16,7 @@
               <th>Id</th>
               <th>Title </th>
               <th>Description</th>
+              <th>Qty</th>
               <th>Author</th>
               <th>Cover</th>
               <th>Action</th>
@@ -59,6 +60,7 @@
                     {data:'DT_RowIndex',orderable:false, searchable:false}, 
                     {data:'title'},
                     {data:'description'},
+                    {data:'qty'},
                     {data:'author'},
                     {data:'cover'},
                     {data:'action'}
