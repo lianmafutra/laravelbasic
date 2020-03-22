@@ -26,6 +26,8 @@ class BorrowHistory extends Model
         return $query->where('returned_at',null);
     }
 
+   
+
     
 
 
